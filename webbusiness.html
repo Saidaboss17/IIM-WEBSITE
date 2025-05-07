@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +17,10 @@
             --dark-gray: #333333;
         }
         
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -33,7 +36,7 @@
         
         header {
             background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
-            padding: 25px 20px;
+            padding: 20px 15px;
             text-align: center;
             color: var(--white);
             width: 100%;
@@ -44,13 +47,13 @@
         
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 700;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
         
         .search-container {
-            margin-top: 20px;
+            margin-top: 15px;
             display: flex;
             width: 100%;
             max-width: 600px;
@@ -58,7 +61,7 @@
         }
         
         .search-input {
-            padding: 12px 20px;
+            padding: 10px 15px;
             border: none;
             border-radius: 30px 0 0 30px;
             width: 100%;
@@ -77,12 +80,13 @@
             color: var(--dark-gray);
             border: none;
             border-radius: 0 30px 30px 0;
-            padding: 12px 25px;
+            padding: 10px 20px;
             cursor: pointer;
             font-size: 1em;
             font-weight: 600;
             transition: all 0.3s ease;
             border: 2px solid var(--accent-yellow);
+            min-width: 80px;
         }
         
         .search-button:hover {
@@ -92,7 +96,7 @@
         
         nav {
             background-color: var(--primary-green);
-            padding: 15px;
+            padding: 10px;
             text-align: center;
             width: 100%;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -108,19 +112,20 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            gap: 10px;
         }
         
         nav ul li {
-            margin: 0 20px;
+            margin: 0;
         }
         
         nav ul li a {
             color: var(--white);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
             transition: all 0.3s ease;
-            padding: 8px 15px;
+            padding: 8px 12px;
             border-radius: 30px;
             display: inline-block;
         }
@@ -131,21 +136,20 @@
         }
         
         main {
-            padding: 30px;
+            padding: 20px 15px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             max-width: 1200px;
-            box-sizing: border-box;
             flex: 1;
         }
         
         .section-title {
             color: var(--primary-green);
-            font-size: 2em;
-            margin-bottom: 30px;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
             width: 100%;
@@ -158,7 +162,7 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 80px;
             height: 4px;
             background-color: var(--accent-yellow);
             border-radius: 2px;
@@ -175,59 +179,64 @@
         /* ===== PRODUCT SPOTLIGHT ===== */
         .product-spotlight {
             display: flex;
+            flex-direction: column;
             background: white;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            margin: 30px 0;
+            margin: 20px 0;
             align-items: center;
             width: 100%;
             max-width: 1000px;
         }
 
         .spotlight-content {
-            padding: 30px;
-            flex: 1;
+            padding: 20px;
+            width: 100%;
         }
 
         .spotlight-image {
-            flex: 1;
+            width: 100%;
+            order: -1;
         }
 
         .spotlight-image img {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: cover;
         }
 
         .spotlight-content h3 {
             color: var(--primary-green);
-            font-size: 1.2em;
+            font-size: 1.1rem;
             margin-bottom: 5px;
         }
 
         .spotlight-content h4 {
-            font-size: 1.8em;
+            font-size: 1.5rem;
             margin: 0 0 10px;
             color: var(--dark-gray);
         }
 
         .spotlight-price {
-            font-size: 1.5em;
+            font-size: 1.3rem;
             color: #e53935;
             font-weight: bold;
-            margin: 15px 0;
+            margin: 10px 0;
         }
 
         .spotlight-content button {
             background: var(--primary-green);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 10px 20px;
             border-radius: 30px;
-            font-size: 1.1em;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
+            width: 100%;
+            max-width: 200px;
+            margin: 10px auto 0;
         }
 
         .spotlight-content button:hover {
@@ -237,30 +246,27 @@
         
         .category-heading {
             color: var(--dark-green);
-            font-size: 1.5em;
-            margin: 40px 0 20px;
-            padding-bottom: 10px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin: 30px 0 15px;
+            padding-bottom: 8px;
             border-bottom: 2px solid var(--light-green);
             width: 100%;
             text-align: left;
         }
         
         .product-category {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
             width: 100%;
-            margin-bottom: 30px;
-            gap: 25px;
+            margin-bottom: 25px;
         }
         
         .product-card {
             background-color: var(--white);
             border-radius: 12px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            margin: 0;
-            padding: 20px;
-            width: 280px;
+            padding: 15px;
             text-align: center;
             transition: all 0.3s ease;
             display: flex;
@@ -268,6 +274,7 @@
             justify-content: space-between;
             align-items: center;
             border: 1px solid rgba(46,125,50,0.1);
+            margin: 0;
         }
         
         .product-card:hover {
@@ -277,29 +284,30 @@
         }
         
         .product-card h3 {
-            margin: 15px 0 10px;
-            font-size: 1.3em;
+            margin: 10px 0;
+            font-size: 1.2rem;
             color: var(--dark-green);
         }
         
         .product-card p {
-            margin: 8px 0;
-            font-size: 1em;
+            margin: 5px 0;
+            font-size: 0.95rem;
             color: #555;
         }
         
         .product-card button {
             background-color: var(--primary-green);
             color: var(--white);
-            padding: 10px 25px;
+            padding: 10px 20px;
             border: none;
             border-radius: 30px;
             cursor: pointer;
             margin-top: 15px;
-            font-size: 1em;
+            font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.3s ease;
-            width: 80%;
+            width: 100%;
+            max-width: 180px;
         }
         
         .product-card button:hover {
@@ -310,19 +318,19 @@
         .discounted {
             color: #e53935;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.05rem;
         }
         
         .original-price {
             text-decoration: line-through;
             color: #999;
-            font-size: 0.9em;
+            font-size: 0.85rem;
         }
         
         #cart-section {
             background-color: var(--white);
-            padding: 30px;
-            margin-top: 40px;
+            padding: 20px;
+            margin-top: 30px;
             border-radius: 12px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             text-align: left;
@@ -331,36 +339,39 @@
         }
         
         #cart-items {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             max-height: 300px;
             overflow-y: auto;
-            padding-right: 10px;
+            padding-right: 5px;
         }
         
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #eee;
             margin-bottom: 5px;
+            flex-wrap: wrap;
+            gap: 5px;
         }
         
         .cart-item span {
             font-weight: 500;
             color: var(--dark-gray);
+            font-size: 0.95rem;
         }
         
         .cart-item button {
             background-color: #e53935;
             color: var(--white);
-            padding: 6px 15px;
+            padding: 5px 12px;
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            font-size: 0.9em;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
-            margin-left: 10px;
+            margin-left: 5px;
         }
         
         .cart-item button:hover {
@@ -369,16 +380,16 @@
         
         #cart-total {
             font-weight: 700;
-            font-size: 1.3em;
+            font-size: 1.2rem;
             color: var(--dark-green);
             text-align: right;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         
         #checkout-section {
             background-color: var(--white);
-            padding: 30px;
-            margin-top: 40px;
+            padding: 20px;
+            margin-top: 30px;
             border-radius: 12px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             text-align: left;
@@ -395,18 +406,19 @@
         }
         
         #checkout-form label {
-            margin-top: 15px;
+            margin-top: 12px;
             font-weight: 500;
             color: var(--dark-green);
+            font-size: 0.95rem;
         }
         
         #checkout-form input {
             width: 100%;
-            padding: 12px 15px;
-            margin-top: 8px;
+            padding: 10px 12px;
+            margin-top: 6px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 1em;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
         }
         
@@ -419,15 +431,17 @@
         #checkout-form button {
             background-color: var(--primary-green);
             color: var(--white);
-            padding: 14px 25px;
+            padding: 12px 20px;
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            margin-top: 25px;
-            font-size: 1.1em;
+            margin-top: 20px;
+            font-size: 1rem;
             font-weight: 600;
             transition: all 0.3s ease;
             align-self: center;
+            width: 100%;
+            max-width: 200px;
         }
         
         #checkout-form button:hover {
@@ -437,8 +451,8 @@
         
         #review-section, #contact-section {
             background-color: var(--white);
-            padding: 30px;
-            margin-top: 40px;
+            padding: 20px;
+            margin-top: 30px;
             border-radius: 12px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             text-align: center;
@@ -455,21 +469,23 @@
         }
         
         #review-form label {
-            margin-top: 15px;
+            margin-top: 12px;
             font-weight: 500;
             color: var(--dark-green);
+            font-size: 0.95rem;
         }
         
         #review-form textarea {
             width: 100%;
-            padding: 12px 15px;
-            margin-top: 8px;
+            padding: 10px 12px;
+            margin-top: 6px;
             border: 1px solid #ddd;
             border-radius: 8px;
             resize: none;
             font-family: 'Poppins', sans-serif;
-            min-height: 120px;
+            min-height: 100px;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
         
         #review-form textarea:focus {
@@ -481,15 +497,17 @@
         #review-form button {
             background-color: var(--primary-green);
             color: var(--white);
-            padding: 14px 25px;
+            padding: 12px 20px;
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            margin-top: 25px;
-            font-size: 1.1em;
+            margin-top: 20px;
+            font-size: 1rem;
             font-weight: 600;
             transition: all 0.3s ease;
             align-self: center;
+            width: 100%;
+            max-width: 200px;
         }
         
         #review-form button:hover {
@@ -502,6 +520,7 @@
             flex-direction: row-reverse;
             justify-content: flex-end;
             margin-top: 5px;
+            gap: 5px;
         }
         
         .star-rating input {
@@ -510,10 +529,9 @@
         
         .star-rating label {
             cursor: pointer;
-            font-size: 28px;
+            font-size: 24px;
             color: #ddd;
             transition: all 0.2s ease;
-            margin-right: 5px;
         }
         
         .star-rating label:hover,
@@ -524,8 +542,8 @@
         }
         
         #contact-section p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 12px;
             text-align: left;
             max-width: 800px;
             margin-left: auto;
@@ -539,14 +557,16 @@
         /* ===== LOYALTY PROGRAM ===== */
         .loyalty-program {
             text-align: center;
-            margin: 50px 0;
+            margin: 40px 0;
             width: 100%;
+            padding: 0 15px;
         }
 
         .loyalty-card {
-            width: 300px;
-            height: 180px;
-            margin: 30px auto;
+            width: 100%;
+            max-width: 300px;
+            height: 160px;
+            margin: 20px auto;
             perspective: 1000px;
             cursor: pointer;
             position: relative;
@@ -560,7 +580,8 @@
             transform-style: preserve-3d;
         }
 
-        .loyalty-card:hover .loyalty-card-inner {
+        .loyalty-card:hover .loyalty-card-inner,
+        .loyalty-card:focus .loyalty-card-inner {
             transform: rotateY(180deg);
         }
 
@@ -569,9 +590,8 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 15px;
-            padding: 20px;
-            box-sizing: border-box;
+            border-radius: 12px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -592,30 +612,39 @@
             text-align: left;
         }
 
+        .card-front h3 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
         .points-display {
-            font-size: 2em;
+            font-size: 1.8rem;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 8px;
             color: var(--accent-yellow);
         }
 
         .barcode {
             font-family: monospace;
-            font-size: 1.5em;
-            letter-spacing: 3px;
-            margin-top: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            word-break: break-all;
+            line-height: 1.2;
         }
 
         .signup-btn {
             background: var(--primary-green);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 10px 20px;
             border-radius: 30px;
-            font-size: 1.1em;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 20px;
+            margin: 15px auto 0;
+            width: 100%;
+            max-width: 200px;
         }
 
         .signup-btn:hover {
@@ -626,95 +655,120 @@
         footer {
             background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
             color: var(--white);
-            padding: 25px;
+            padding: 20px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
             width: 100%;
-            font-size: 1em;
+            font-size: 0.95rem;
         }
         
         .review-item {
             background-color: var(--lighter-green);
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: left;
             border-left: 4px solid var(--primary-green);
         }
         
         .review-item h4 {
-            margin: 0 0 10px;
+            margin: 0 0 8px;
             color: var(--dark-green);
-            font-size: 1.2em;
+            font-size: 1.1rem;
         }
         
         .review-rating {
             color: var(--accent-yellow);
-            font-size: 1.1em;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 8px;
         }
         
         .review-comment {
             color: var(--dark-gray);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
         
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
-            nav ul {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            nav ul li {
-                margin: 5px 10px;
-            }
-            
-            .product-card {
-                width: 100%;
-                max-width: 350px;
-            }
-            
-            .product-spotlight {
-                flex-direction: column;
+            .product-category {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
             
             .spotlight-image img {
-                height: 200px;
+                height: 180px;
             }
             
-            .section-title {
-                font-size: 1.8em;
+            .spotlight-content h4 {
+                font-size: 1.3rem;
             }
             
-            .category-heading {
-                font-size: 1.3em;
-                text-align: center;
+            .spotlight-price {
+                font-size: 1.2rem;
+            }
+            
+            #checkout-form button,
+            #review-form button,
+            .signup-btn {
+                max-width: 100%;
             }
         }
         
         @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8em;
+            header {
+                padding: 15px 10px;
             }
             
             .search-input, .search-button {
-                padding: 10px 15px;
+                padding: 8px 12px;
+            }
+            
+            nav ul {
+                gap: 5px;
+            }
+            
+            nav ul li a {
+                padding: 6px 10px;
+            }
+            
+            .product-card {
+                padding: 12px;
             }
             
             .product-card h3 {
-                font-size: 1.2em;
+                font-size: 1.1rem;
             }
             
-            .section-title {
-                font-size: 1.5em;
+            .loyalty-card {
+                height: 150px;
             }
             
-            #checkout-form button, #review-form button {
-                width: 100%;
+            .card-front, .card-back {
+                padding: 12px;
+            }
+            
+            .card-front h3 {
+                font-size: 1.1rem;
+            }
+            
+            .points-display {
+                font-size: 1.5rem;
+            }
+            
+            .barcode {
+                font-size: 1rem;
+            }
+        }
+
+        /* Touch device adjustments */
+        @media (hover: none) {
+            .loyalty-card:hover .loyalty-card-inner {
+                transform: none;
+            }
+            
+            .product-card:hover {
+                transform: none;
+                box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             }
         }
         
@@ -730,7 +784,7 @@
         
         /* Scrollbar styling */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         
         ::-webkit-scrollbar-track {
@@ -739,7 +793,7 @@
         
         ::-webkit-scrollbar-thumb {
             background-color: var(--primary-green);
-            border-radius: 4px;
+            border-radius: 3px;
         }
     </style>
 </head>
@@ -766,15 +820,15 @@
             
             <!-- ===== PRODUCT SPOTLIGHT ===== -->
             <div class="product-spotlight">
+                <div class="spotlight-image">
+                    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Organic Ghee">
+                </div>
                 <div class="spotlight-content">
                     <h3>Product of the Day</h3>
                     <h4>Organic Ghee</h4>
                     <p>Pure cow ghee made using traditional methods</p>
                     <p class="spotlight-price">₹450/kg <span class="original-price">₹550/kg</span></p>
-                    <button onclick="addToOrder('Organic Ghee', 450)">Add to Cart</button>
-                </div>
-                <div class="spotlight-image">
-                    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Organic Ghee">
+                    <button onclick="addToCart('Organic Ghee', 450)">Add to Cart</button>
                 </div>
             </div>
 
@@ -784,35 +838,35 @@
                     <h3>Rice</h3>
                     <p>Premium Basmati Rice</p>
                     <p>Price: ₹50/kg</p>
-                    <button onclick="addToOrder('Rice', 50)">Add to Order</button>
+                    <button onclick="addToCart('Rice', 50)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
                     <h3>Sugar</h3>
                     <p>Pure granulated sugar</p>
                     <p>Price: ₹40/kg</p>
-                    <button onclick="addToOrder('Sugar', 40)">Add to Order</button>
+                    <button onclick="addToCart('Sugar', 40)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
                     <h3>Milk</h3>
                     <p>Fresh Cow Milk</p>
                     <p>Price: ₹25/liter</p>
-                    <button onclick="addToOrder('Milk', 25)">Add to Order</button>
+                    <button onclick="addToCart('Milk', 25)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
                     <h3>Eggs</h3>
                     <p>Farm Fresh Eggs</p>
                     <p>Price: ₹6/piece</p>
-                    <button onclick="addToOrder('Eggs', 6)">Add to Order</button>
+                    <button onclick="addToCart('Eggs', 6)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
                     <h3>Bread</h3>
                     <p>Whole Wheat Bread</p>
                     <p>Price: ₹30/pack</p>
-                    <button onclick="addToOrder('Bread', 30)">Add to Order</button>
+                    <button onclick="addToCart('Bread', 30)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
@@ -820,32 +874,23 @@
                     <p>Salted Butter</p>
                     <p class="original-price">₹100/200g</p>
                     <p class="discounted">Now: ₹90 (10% off)</p>
-                    <button onclick="addToOrder('Butter', 90)">Add to Order</button>
+                    <button onclick="addToCart('Butter', 90)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
                     <h3>Cheese</h3>
                     <p>Cheddar Cheese</p>
                     <p>Price: ₹200/200g</p>
-                    <button onclick="addToOrder('Cheese', 200)">Add to Order</button>
+                    <button onclick="addToCart('Cheese', 200)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
                     <h3>Yogurt</h3>
                     <p>Plain Yogurt</p>
                     <p>Price: ₹40/500g</p>
-                    <button onclick="addToOrder('Yogurt', 40)">Add to Order</button>
+                    <button onclick="addToCart('Yogurt', 40)">Add to Cart</button>
                 </div>
             </div>
-		<div class="product-card">
-                    <h3>chocolate</h3>
-                    <p>Dark chocolate(70%)</p>
-                    <p>Price: ₹120/piece</p>
-                    <button onclick="addToOrder('chocolate', 120)">Add to Order</button>
-                </div>
-            </div>
-
-
             
             <h3 class="category-heading">Toiletries</h3>
             <div class="product-category">
@@ -853,17 +898,16 @@
                     <h3>Batteries</h3>
                     <p>AA Batteries</p>
                     <p>Price: ₹25/pack</p>
-                    <button onclick="addToOrder('Batteries', 25)">Add to Order</button>
+                    <button onclick="addToCart('Batteries', 25)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
                     <h3>Toothbrush</h3>
                     <p>Soft Toothbrush</p>
                     <p>Price: ₹50/piece</p>
-                    <button onclick="addToOrder('Toothbrush', 50)">Add to Order</button>
+                    <button onclick="addToCart('Toothbrush', 50)">Add to Cart</button>
                 </div>
-            </div>            
-
+            </div>
             
             <h3 class="category-heading">Stationery</h3>
             <div class="product-category">
@@ -871,7 +915,7 @@
                     <h3>Pens</h3>
                     <p>Ballpoint Pens</p>
                     <p>Price: ₹10/piece</p>
-                    <button onclick="addToOrder('Pens', 10)">Add to Order</button>
+                    <button onclick="addToCart('Pens', 10)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
@@ -879,14 +923,14 @@
                     <p>Fiction Novel</p>
                     <p class="original-price">₹200/book</p>
                     <p class="discounted">Now: ₹190 (5% off)</p>
-                    <button onclick="addToOrder('Books', 190)">Add to Order</button>
+                    <button onclick="addToCart('Books', 190)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
                     <h3>Perfume</h3>
                     <p>Floral Perfume</p>
                     <p>Price: ₹300/bottle</p>
-                    <button onclick="addToOrder('Perfume', 300)">Add to Order</button>
+                    <button onclick="addToCart('Perfume', 300)">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -897,7 +941,7 @@
                 <p>Your cart is empty.</p>
             </div>
             <p id="cart-total">Total: ₹0</p>
-            <button onclick="placeOrder()" style="width: 100%; max-width: 200px; margin: 20px auto 0;">Place Order</button>
+            <button onclick="placeOrder()" style="width: 100%; max-width: 200px; margin: 15px auto 0;">Place Order</button>
         </section>
         
         <section id="checkout-section">
@@ -951,7 +995,7 @@
         <!-- ===== LOYALTY PROGRAM ===== -->
         <section class="loyalty-program">
             <h2 class="section-title">Join Our Loyalty Program</h2>
-            <div class="loyalty-card">
+            <div class="loyalty-card" tabindex="0">
                 <div class="loyalty-card-inner">
                     <div class="card-front">
                         <h3>New Balaji Supermarket</h3>
@@ -986,28 +1030,39 @@
     </footer>
     
     <script>
-        let order = {};
+        let cart = {};
         
-        function addToOrder(product, price) {
-            if (order[product]) {
-                order[product].quantity += 1;
+        // Add to cart function with touch-friendly feedback
+        function addToCart(product, price) {
+            if (cart[product]) {
+                cart[product].quantity += 1;
             } else {
-                order[product] = { quantity: 1, price: price };
+                cart[product] = { quantity: 1, price: price };
             }
             
             // Create and show notification
+            showNotification(`${product} added to cart!`);
+            updateCart();
+            
+            // Clear the search input
+            document.getElementById('product-search').value = '';
+        }
+        
+        // Improved notification system
+        function showNotification(message) {
             const notification = document.createElement('div');
-            notification.textContent = `${product} added to cart!`;
+            notification.textContent = message;
             notification.style.position = 'fixed';
             notification.style.bottom = '20px';
             notification.style.right = '20px';
             notification.style.backgroundColor = '#2e7d32';
             notification.style.color = 'white';
-            notification.style.padding = '15px 25px';
+            notification.style.padding = '12px 20px';
             notification.style.borderRadius = '30px';
             notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
             notification.style.zIndex = '1000';
             notification.style.animation = 'fadeIn 0.3s ease-out';
+            notification.style.fontSize = '0.95rem';
             document.body.appendChild(notification);
             
             // Remove notification after 3 seconds
@@ -1015,19 +1070,13 @@
                 notification.style.animation = 'fadeIn 0.3s ease-out reverse';
                 setTimeout(() => document.body.removeChild(notification), 300);
             }, 3000);
-            
-            updateCart();
-            
-            // Clear the search input
-            const searchInput = document.getElementById('product-search');
-            searchInput.value = '';
         }
         
         function removeFromCart(product) {
-            if (order[product]) {
-                order[product].quantity -= 1;
-                if (order[product].quantity === 0) {
-                    delete order[product];
+            if (cart[product]) {
+                cart[product].quantity -= 1;
+                if (cart[product].quantity === 0) {
+                    delete cart[product];
                 }
                 updateCart();
             }
@@ -1039,75 +1088,5 @@
             let total = 0;
             cartItemsDiv.innerHTML = '';
             
-            if (Object.keys(order).length === 0) {
-                cartItemsDiv.innerHTML = '<p style="text-align: center;">Your cart is empty. Start shopping!</p>';
-                cartTotalDiv.textContent = 'Total: ₹0';
-                return;
-            }
-            
-            for (const product in order) {
-                const quantity = order[product].quantity;
-                const price = order[product].price;
-                const itemTotal = quantity * price;
-                total += itemTotal;
-                
-                const cartItemDiv = document.createElement('div');
-                cartItemDiv.classList.add('cart-item');
-                cartItemDiv.innerHTML = `
-                    <span>${product} × ${quantity}</span>
-                    <span>₹${itemTotal}</span>
-                    <button onclick="removeFromCart('${product}')">Remove</button>
-                `;
-                cartItemsDiv.appendChild(cartItemDiv);
-            }
-            
-            cartTotalDiv.textContent = `Total: ₹${total}`;
-        }
-        
-        function placeOrder() {
-            if (Object.keys(order).length === 0) {
-                alert('Your cart is empty! Please add some items before placing an order.');
-                return;
-            }
-            
-            // Scroll to checkout section
-            document.getElementById('checkout-section').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Handle checkout form submission
-        document.getElementById('checkout-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            if (Object.keys(order).length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
-            
-            const name = document.getElementById('checkout-name').value;
-            const address = document.getElementById('address').value;
-            const phone = document.getElementById('phone').value;
-            
-            if (!name || !address || !phone) {
-                alert('Please fill in all required details!');
-                return;
-            }
-            
-            // In a real app, you would send this data to a server
-            console.log('Order placed:', {
-                customer: { name, address, phone },
-                items: order,
-                total: calculateTotal()
-            });
-            
-            // Show success message
-            alert(`Thank you, ${name}! Your order has been placed successfully. We'll deliver to ${address} soon.`);
-            
-            // Reset order and cart
-            order = {};
-            updateCart();
-            this.reset();
-        });
-        
-        function calculateTotal() {
-            let total = 0;
-            for (
+            if (Object.keys(cart).length === 0) {
+                cartItemsDiv.innerHTML = '<p style="text-align: center; padding: 10px;">Your cart is empty. Start shopping!</
